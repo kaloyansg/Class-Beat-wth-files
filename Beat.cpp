@@ -11,6 +11,13 @@ Beat::Beat()
 
 Beat::Beat(const char* name, size_t duration, double price, const char* genre)
 {
+	if (!name || strlen(name) == 0)
+	{
+		this->name = new char[strlen("Beat") + 1];
+		strcpy(this->name, "Beat");
+	}
+
+
 	if (duration > 240)
 		throw "Invalid duration";
 	if (price < 0)
