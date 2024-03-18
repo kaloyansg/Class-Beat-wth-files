@@ -1,8 +1,32 @@
 #include <iostream>
 #include <fstream>
 #include "Beat.h"
+#include "BeatPack.h"
 
 int main()
+{
+	Beat a;
+	Beat b("Brilla", 45, 35, "Drill");
+	Beat c("Crap", 50, 55, "Trap");
+
+	BeatPack pack;
+	pack.addBeat(a);
+	pack.addBeat(b);
+	pack.addBeat(c);
+
+	Beat arr[2];
+	arr[0] = c;
+	arr[1] = b;
+	BeatPack pack2(arr, 2);
+
+	pack.saveAsText("beatPack1.txt");
+	pack.getFromText("beatPack1.txt");
+
+	pack2.saveAsBinary("beatPack2.dat");
+	pack2.getFromBinary("beatPack2.dat");
+}
+
+int main2()
 {
     std::cout << "Hello World!\n";
     Beat a;
