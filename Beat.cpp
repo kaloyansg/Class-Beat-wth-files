@@ -143,7 +143,7 @@ void Beat::getFromBinary(std::ifstream& file)
 	file.read(tempName, nameSize);
 	if (!file)
 		throw "File not valid";
-
+	delete[] this->name;
 	file.read(reinterpret_cast<char*>(this), sizeof(Beat));
 	if (!file)
 		throw "File not valid";
